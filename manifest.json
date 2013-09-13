@@ -1,0 +1,24 @@
+{
+ "name": "googli",
+  "version": "0.1",
+  "description": "google on the fly",
+  "permissions": [
+      "https://*.google.com/*","http://*.google.com/*"
+    ],
+    "browser_action": {
+        "default_name": "googli",
+        "default_icon": "search.png",
+        "default_popup": "gog.html"
+    },
+
+  "content_scripts": [
+    {
+      "matches": ["http://*/* , https://*/*"],
+      "css": ["gog.css"],
+      "js": ["gog.js"]
+    }
+  ],
+
+    "manifest_version": 2,
+    "content_security_policy":"default-src 'self'; script-src 'self' https://*.google.com https://www.googleapis.com 'unsafe-eval';object-src 'self' https://www.google.com;style-src https://*.google.com http://*.google.com;img-src https://www.googleapis.com https://*.google.com http://*.google.com https://*.gstatic.com;" 
+}
